@@ -1,0 +1,372 @@
+---
+title: "Data Management & Analysis in Research using RStudio"
+subtitle: "Data Visualization & Reproducible Data<br><br/>"
+author: "Defriman Djafri"
+institute: "<br><br/>Epidemiology & Biostatistics<br>Faculty of Public Health, Universitas Andalas"
+date: "02 September 2021"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      slideNumberFormat: "Slide %current% of %total%"
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+	echo = TRUE,
+	fig.height = 3.5,
+	fig.retina = 3,
+	fig.width = 9,
+	message = FALSE,
+	warning = FALSE,
+	cache = FALSE,
+	hiline = TRUE,
+	out.width = "100%"
+)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#4361ee",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "300", "300i"),
+  code_font_google   = google_font("Fira Mono")
+)
+```
+
+```{r xaringan-tile-view, echo=FALSE}
+xaringanExtra::use_tile_view()
+```
+
+```{r xaringan-scribble, echo=FALSE}
+xaringanExtra::use_scribble()
+```
+
+```{r xaringanExtra, echo = FALSE}
+xaringanExtra::use_progress_bar(color = "#4361ee", location = "top")
+```
+
+```{r xaringan-panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+
+```{r xaringan-extra-styles, echo=FALSE}
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,       
+  mute_unhighlighted_code = TRUE  
+)
+```
+
+# Outlines
+
+- Data Management & Analysis Concept
+
+- R & RStudio
+
+- Data Management & Analysis with RStudio
+
+- Data Visualization & Reproducible Data
+
+- RStudio Demonstrations
+---
+
+# Data Management & Analysis Concept 
+
+## - **Data Management**
+  - Planning, handling, **documenting**, checking, cleaning, storing and placing data during the study/research phase. 
+
+## - **Data Analysis**
+  - Categorization, sorting, controlling and **summarizing/simplifying** data, so that it is easily understood and interpreted into information. 
+
+## - **Data Interpretation**
+  - Inferential and explanation find **meaning or knowledge**, perform inference. Understanding of concepts, materials and data, logic, statistics and substance being analyzed is very necessary for the interpretation process.
+---
+
+## Process flow chart for data management and analysis
+
+<center><img src="https://raw.githubusercontent.com/deffku/workshop/main/flow.png" height="500px" /></center>
+---
+
+## SPSS
+<center><img src="https://raw.githubusercontent.com/deffku/workshop/main/spss.png" height="500px" /></center>
+---
+
+## SPSS Data Entry
+<center><img src="https://raw.githubusercontent.com/deffku/workshop/main/entry.png" height="500px" /></center>
+---
+
+## Epiinfo 6.04d
+<center><img src="https://raw.githubusercontent.com/deffku/workshop/main/epi.png" height="500px" /></center>
+---
+
+## EpiData 3.1
+<center><img src="https://raw.githubusercontent.com/deffku/workshop/main/epidata.png" height="500px" /></center>
+---
+
+## Data Entry with EpiData 3.1
+<center><img src="https://raw.githubusercontent.com/deffku/workshop/main/epidata1.png" height="500px" /></center>
+---
+
+## EpiInfo 7
+<center><img src="https://raw.githubusercontent.com/deffku/workshop/main/epi7.png" height="500px" /></center>
+---
+
+## STATA
+<center><img src="https://raw.githubusercontent.com/deffku/workshop/main/stata.png" height="500px" /></center>
+---
+
+## R Software with Tinn-R
+<center><img src="https://raw.githubusercontent.com/deffku/workshop/main/r.png" height="500px" /></center>
+---
+
+## R Studio
+<center><img src="https://raw.githubusercontent.com/deffku/workshop/main/studio.png" height="500px" /></center>
+---
+
+
+
+class: inverse center middle
+# R & R-Studio
+---
+
+## Why use R?
+
+- ***Free***
+  - Available for free, General Public License (GNU)
+- ***Cross-platform***
+  - Can be used with various operating systems
+- ***Open Source***
+  - Growing rapidly, and very open to learn and build.
+- ***Programmable***
+  - Very powerful computational programming.
+- ***Extendable***
+  - Extensible through the thousands of packages available, with various forms of statistical computing.
+- ***Graphical***
+  - An integrated development environment (IDE) 
+- ***Reproducible***
+  - ***"Data Products"*** to dynamically and reproducibly present results in articles, slideshows, and webpages, etc.
+---
+
+##  Download and install
+
+- ***R Software***
+  - Windows
+      - https://cran.r-project.org/bin/windows/base/R-4.1.1-win.exe
+  - MacOS
+      - https://cran.r-project.org/bin/macosx/base/R-4.1.1.pkg
+      
+      
+- ***R Studio Desktop***
+  - Windows
+        - https://download1.rstudio.org/desktop/windows/RStudio-1.4.1717.exe
+  - MacOS
+      - https://download1.rstudio.org/desktop/macos/RStudio-1.4.1717.dmg
+
+- ***R Packages***
+  - List of R packages you need and requirement to install  on your computer.
+
+---
+
+##  How do I code in R?
+
+  - ***Basics***
+    - Console pane
+    - Objects
+    - Data types
+  - ***Vectors***
+    - A series of values. These are created using the c() function.
+  - ***Factors***
+    - Categorical data are commonly represented in R as factors.
+  - ***Data Frames***
+    - Rectangular spreadsheets. 
+    - They are representations of datasets in R where the rows correspond to observations and the columns correspond to variables that describe the observations.
+  - ***Conditionals***
+    - Testing for equality
+    - Boolean algebra
+    - Logical operators
+  - ***Functions***
+    - Also called ___"commands"___
+    - Functions perform tasks in R
+---
+
+## What are R and R-Studio
+
+<center><img src="https://raw.githubusercontent.com/deffku/workshop/main/randst.png" height="500px" /></center>
+---
+
+##  Analogy of R versus R packages
+
+<center><img src="https://raw.githubusercontent.com/deffku/workshop/main/app.png" height="500px" /></center>
+---
+
+# What is Reproducible Research?
+<br>
+> ___"replicable"___ if there is suÿcient information available for independent researchers to make the same fndings using the same procedures with new data ***(Lykken, 1968)***.
+
+
+In computational and quantitative empirical sciences, results are replicable if independent researchers can recreate fndings by following the procedures originally used to gather the data and run the computer code.
+
+
+> Reproducibility is important for both quantitative and qualitative research ***(King et al., 1994)***. 
+
+Nonetheless, we will focus mainly on on methods for reproducibility in quantitative computational research.
+
+
+> In practice, research needs to be easy for independent researchers to reproduce ***(Ball and Medeiros, 2011)***.
+
+Reproducible research is one of ***the main components of science***. If that’s not enough reason for you to make your research reproducible, consider that the tools of reproducible research also have direct benefts for you as a researcher.
+---
+### The Tools of Reproducible Research
+
+- ***R Software*** 
+  - a programming language primarily for statistics and graphics. It can also be useful for data gathering and creating presentation documents.
+- ***knitr and rmarkdown***
+  - R packages for literate programming of the results into one document. They work with R and a number of other languages such as Bash, Python, and Ruby. They allow you to combine your statistical analysis and the presentation
+- ***Markup languages***
+  - Instructions for how to format a presentation document. (LaTeX, Markdown, and a little HTML)
+- ***Cloud storage and versioning*** 
+  - Git/GitHub that can store data, code, and presentation fles, save previous versions of these fles, and make this information widely available.
+- ***RStudio***
+  - an integrated developer environment (IDE) for R that tightly combines R, knitr, rmarkdown, and markup languages.
+---
+
+## Tabulation
+
+.panelset.sideways[
+.panel[.panel-name[R Code]
+
+```{r panel-chunk, fig.show='hide'}
+library(gtsummary)
+
+trial2 <- trial %>% select(age, grade, response, trt)
+# make dataset with a few variables to summarize
+
+Table1 <- 
+  tbl_summary(
+    trial2,
+    by = trt, # split table by group
+    missing = "no" # don't list missing data separately
+  ) %>%
+  add_n() %>% # add column with total number of non-missing observations
+  add_p() %>% # test for a difference between groups
+  modify_header(label = "**Variable**") %>% # update the column header
+  bold_labels()
+```
+]
+
+.panel[.panel-name[Plot]
+![](table1.png)
+
+]
+]
+---
+
+## Regression Models
+
+.panelset.sideways[
+.panel[.panel-name[R Code]
+```{r}
+Model1 <- glm(response ~ trt + age + grade, trial, family = binomial)
+
+table2 <- tbl_regression(Model1, exponentiate = TRUE)
+```
+]
+
+.panel[.panel-name[Plot]
+![](table2.png)
+]
+.panel[.panel-name[R Code]
+```{r}
+library(survival)
+
+# build survival model table
+Table3 <-
+  coxph(Surv(ttdeath, death) ~ trt + grade + age, trial) %>%
+  tbl_regression(exponentiate = TRUE)
+
+# merge tables 
+table_merge <-
+  tbl_merge(
+    tbls = list(Table1, Table3),
+    tab_spanner = c("**Tumor Response**", "**Time to Death**")
+  )
+```
+
+]
+.panel[.panel-name[Plot]
+![](table3.png)
+]
+]
+---
+## Data Visualization 
+
+.panelset.sideways[
+.panel[.panel-name[Bar Plot]
+
+```{r}
+library(ggplot2)
+library(scales)
+library(ggsci)
+ggplot(data = diamonds)+
+  theme_linedraw()+
+  geom_bar(mapping = aes(x = cut, fill = clarity), position = "dodge")+
+ scale_fill_npg()
+```
+]
+.panel[.panel-name[Geoms Plot]
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy))+
+  geom_point(mapping = aes(color = class)) + geom_smooth()+
+  theme_linedraw()
+```
+]
+
+.panel[.panel-name[Polar Plot]
+
+```{r}
+bar <- ggplot(data = diamonds)+
+  geom_bar( mapping = aes(x = cut, fill = cut), show.legend = FALSE, width = 1 )+
+  theme(aspect.ratio = 1)+
+  theme_linedraw()+
+  scale_fill_lancet()
+  bar+coord_polar()
+```
+
+]
+.panel[.panel-name[Facet Plot]
+
+
+]
+]
+```{r,include=FALSE }
+library(fontawesome)
+```
+---
+# FontAwesome
+
+.pull-left[
+
+
+
+```{r}
+
+```
+]
+
+
+.pull-right[
+.big[`r fa("r-project", fill = "steelblue")`]
+]
+---
+class: inverse, center,middle
+# Thanks you for your attention
+
+
+
